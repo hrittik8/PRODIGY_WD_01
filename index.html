@@ -1,0 +1,782 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeingFoodie | Web Design</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary-color: #8e44ad;
+    --primary-color-light: #f8f4fb;
+    --primary-color-dark: #732d91;
+    --text-dark: #18181b;
+    --text-light: #6b7280;
+    --white: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    line-height: 1.6;
+    color: #222;
+    background-color: var(--white);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .nav__logo a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .nav__logo span {
+    color: var(--primary-color-light);
+  }
+
+  .nav__links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav__links a {
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .nav__links a:hover {
+    color: var(--primary-color-dark);
+    transform: scale(1.05);
+  }
+
+  .nav__links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: var(--primary-color-dark);
+    transition: width 0.3s;
+  }
+
+  .nav__links a:hover::after {
+    width: 100%;
+  }
+
+  .nav__btn .btn {
+    background: var(--primary-color-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: var(--primary-color-light);
+  }
+
+  .header__image img {
+    max-width: 400px;
+  }
+
+  .header__content {
+    max-width: 500px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .header__content h1 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+  }
+
+  .header__content h1 span {
+    color: var(--primary-color);
+  }
+
+  .header__btn .btn {
+    margin-top: 1rem;
+    background: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .section__header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+  }
+
+  .section__description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: var(--text-light);
+  }
+
+  .special__container {
+    padding: 3rem 2rem;
+    background: var(--white);
+  }
+
+  .special__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .special__card {
+    background: var(--primary-color-light);
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .special__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(142, 68, 173, 0.2);
+    border-color: var(--primary-color);
+  }
+
+  .special__ratings span {
+    color: var(--primary-color);
+  }
+
+  .special__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .special__footer .btn {
+    background: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .explore__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: var(--primary-color-light);
+  }
+
+  .explore__image img {
+    max-width: 400px;
+  }
+
+  .explore__content {
+    max-width: 500px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .explore__btn .btn {
+    background: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .banner__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background: var(--primary-color-light);
+    justify-content: center;
+  }
+
+  .banner__card {
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    transition: box-shadow 0.3s;
+  }
+
+  .banner__card:hover {
+    box-shadow: 0 5px 20px rgba(142, 68, 173, 0.2);
+  }
+
+  .banner__icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+
+  .banner__card a {
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .banner__card a:hover {
+    color: var(--primary-color-dark);
+  }
+
+  .chef {
+    position: relative;
+    background: var(--white);
+    padding: 3rem 2rem;
+  }
+
+  .chef__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    opacity: 0.5;
+  }
+
+  .chef__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .chef__image img {
+    max-width: 300px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+  }
+
+  .chef__content {
+    max-width: 500px;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+  }
+
+  .chef__list li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-dark);
+  }
+
+  .chef__list i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+  }
+
+  .client__container {
+    padding: 3rem 2rem;
+    background: var(--primary-color-light);
+    text-align: center;
+  }
+
+  .client__swiper {
+    max-width: 600px;
+    margin: 2rem auto 0;
+  }
+
+  .swiper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+  }
+
+  .client__card {
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .client__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(142, 68, 173, 0.2);
+  }
+
+  .client__card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1rem auto;
+  }
+
+  .footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 2rem;
+  }
+
+  .footer__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  .footer__logo a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .footer__logo span {
+    color: var(--primary-color-light);
+  }
+
+  .footer__col h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color-light);
+  }
+
+  .footer__links a {
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .footer__links a:hover {
+    color: var(--primary-color-light);
+    transform: translateX(5px);
+  }
+
+  .footer__bar {
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--primary-color-light);
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .nav__links {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--primary-color);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+    }
+
+    .nav__links.active {
+      display: flex;
+    }
+
+    .nav__menu__btn {
+      display: block;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--white);
+    }
+  }
+</style>
+
+</head>
+<body>
+  <nav>
+  <div class="logo nav__logo">
+    <a href="#">Being<span>Foodie</span></a>
+  </div>
+  <div class="nav__links">
+    <a href="#home">Home</a>
+    <a href="#special">Special</a>
+    <a href="#chef">Chef</a>
+    <a href="#client">Client</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+  <div class="nav__btn">
+    <button class="btn"><i class="ri-shopping-bag-fill"></i></button>
+  </div>
+</nav>
+
+  <header class="section__container header__container" id="home">
+    <div class="header__image">
+      <img src="assets/header.png" alt="header" />
+    </div>
+    <div class="header__content">
+      <h1>Meet, Eat & Enjoy The <span>True Taste</span>.</h1>
+      <p class="section__description">
+        Discover the true essence of culinary delight as you meet, eat, and
+        savor the authentic flavors that define our passion for food.
+      </p>
+      <div class="header__btn">
+        <button class="btn">Get Started</button>
+      </div>
+    </div>
+  </header>
+  <section class="section__container special__container" id="special">
+    <h2 class="section__header">Our Special Dish</h2>
+    <p class="section__description">
+      Each dish promises an unforgettable dining experience, blending
+      innovation with tradition to delight your senses.
+    </p>
+    <div class="special__grid">
+      <div class="special__card">
+        <img src="assets/special-1.png" alt="special" />
+        <h4>Chicken Tikka Curry</h4>
+        <p>
+          Diced chicken simmered in aromatic curry sauce with mixed veggies
+          like potatoes, cauliflower, and beans for a hearty, flavorful dish.
+        </p>
+        <div class="special__ratings">
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+        </div>
+        <div class="special__footer">
+          <p class="price">₹280</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="special__card">
+        <img src="assets/special-2.png" alt="special" />
+        <h4>Chicken Wok Stir-Fry</h4>
+        <p>
+          Tender chicken strips wok-tossed with a colorful array of fresh
+          vegetables in a flavorful blend of spices and sauces.
+        </p>
+        <div class="special__ratings">
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+        </div>
+        <div class="special__footer">
+          <p class="price">₹320</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="special__card">
+        <img src="assets/special-3.png" alt="special" />
+        <h4>Chicken Garlic Pasta</h4>
+        <p>
+          Al dente pasta tossed with chicken strips and a mix of vibrant
+          vegetables in a creamy garlic herb sauce, offering a delightful
+          pasta experience.
+        </p>
+        <div class="special__ratings">
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+        </div>
+        <div class="special__footer">
+          <p class="price">₹350</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section__container explore__container">
+    <div class="explore__image">
+      <img src="assets/explore.png" alt="explore" />
+    </div>
+    <div class="explore__content">
+      <h1 class="section__header">We Serve Healthy & Tasty Food</h1>
+      <p class="section__description">
+        Indulge guilt-free with our commitment to serving wholesome and
+        delicious meals. Explore a menu curated to balance taste and
+        nutrition, ensuring every bite is both satisfying and nourishing.
+      </p>
+      <div class="explore__btn">
+        <button class="btn">
+          Explore Story <span><i class="ri-arrow-right-line"></i></span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="section__container banner__container">
+    <div class="banner__card">
+      <span class="banner__icon"><i class="ri-candle-fill"></i></span>
+      <h4>Order Your Food</h4>
+      <p>
+        Seamlessly place your food orders online with just a few clicks. Enjoy
+        convenience and efficiency as you select from our diverse menu.
+      </p>
+      <a href="#">
+        Read more
+        <span><i class="ri-arrow-right-line"></i></span>
+      </a>
+    </div>
+    <div class="banner__card">
+      <span class="banner__icon"><i class="ri-truck-fill"></i></span>
+      <h4>Pick Your Food</h4>
+      <p>
+        Customize your dining experience by choosing from a tantalizing array
+        of options to satisfy every craving.
+      </p>
+      <a href="#">
+        Read more
+        <span><i class="ri-arrow-right-line"></i></span>
+      </a>
+    </div>
+    <div class="banner__card">
+      <span class="banner__icon"><i class="ri-star-smile-fill"></i></span>
+      <h4>Enjoy Your Food</h4>
+      <p>
+        Sit back and savor the flavors as your meal arrives, knowing that
+        your satisfaction is our top priority.
+      </p>
+      <a href="#">
+        Read more
+        <span><i class="ri-arrow-right-line"></i></span>
+      </a>
+    </div>
+  </section>
+  <section class="chef" id="chef">
+    <img src="assets/topping.png" alt="topping" class="chef__bg" />
+    <div class="section__container chef__container">
+      <div class="chef__image">
+        <img src="assets/chef.png" alt="chef" />
+      </div>
+      <div class="chef__content">
+        <h2 class="section__header">Cooked By The Best Chefs In The World</h2>
+        <p class="section__description">
+          Experience culinary excellence crafted by master chefs from around
+          the globe. Our team of culinary virtuosos brings together expertise,
+          innovation, and passion to create unforgettable dining experiences
+          that redefine gastronomy.
+        </p>
+        <ul class="chef__list">
+          <li>
+            <span><i class="ri-checkbox-fill"></i></span>
+            Savour culinary brilliance from master chefs worldwide.
+          </li>
+          <li>
+            <span><i class="ri-checkbox-fill"></i></span>
+            Experience innovative creations with attention to detail.
+          </li>
+          <li>
+            <span><i class="ri-checkbox-fill"></i></span>
+            Enjoy dishes crafted with an unwavering passion for perfection.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section__container client__container" id="client">
+    <h2 class="section__header">What Our Customers Are Saying</h2>
+    <p class="section__description">
+      Discover firsthand experiences and testimonials from our valued patrons.
+      Explore the feedback and reviews that showcase our commitment to
+      quality, service, and customer satisfaction.
+    </p>
+    <div class="client__swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="client__card">
+              <p>
+                BeingFoodie's culinary expertise never fails to impress! Every
+                dish is a masterpiece, bursting with flavor and freshness.
+              </p>
+              <img src="assets/client-1.jpg" alt="client" />
+              <h4>Amit Kumar</h4>
+              <h5>Business Executive</h5>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <p>
+                I always turn to BeingFoodie for a quick and delicious meal. Their
+                efficient service and mouthwatering options never disappoint!
+              </p>
+              <img src="assets/client-2.jpg" alt="client" />
+              <h4>Shreya Nair</h4>
+              <h5>Food Blogger</h5>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <p>
+                BeingFoodie has become my go-to for all my catering needs. Their
+                attention to detail and exceptional customer service make
+                every event a success.
+              </p>
+              <img src="assets/client-3.jpg" alt="client" />
+              <h4>Radhika Aggarwal</h4>
+              <h5>Event Planner</h5>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <p>
+                The consistency and taste from BeingFoodie keeps me coming back.
+                Highly recommend them for daily meals and events!
+              </p>
+              <img src="assets/client-4.jpg" alt="client" />
+              <h4>Tripti Singh</h4>
+              <h5>Nytrition Coach</h5>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <p>
+                BeingFoodie has transformed my dining experience. Their
+                innovative dishes and impeccable service make every meal a
+                delightful occasion.
+              </p>
+              <img src="assets/client-5.jpg" alt="client" />
+              <h4>Ritika Patel</h4>
+              <h5>Culinary Enthusiast</h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer" id="contact">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <div class="logo footer__logo">
+          <a href="#">Being<span>Foodie</span></a>
+        </div>
+        <p class="section__description">
+          Embark on a gastronomic journey with BeingFoodie, where every bite tells
+          a story and every dish is crafted to perfection.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul class="footer__links">
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Specials</a></li>
+          <li><a href="#">Meal Deals</a></li>
+          <li><a href="#">Catering Options</a></li>
+          <li><a href="#">Seasonal Offerings</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Information</h4>
+        <ul class="footer__links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Nutrition Information</a></li>
+          <li><a href="#">Allergen Information</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul class="footer__links">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bar">
+      Copyright© 2025 BeingFoodie. All rights reserved.
+    </div>
+  </footer>
+  
+	<script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Scroll reveal animation
+    ScrollReveal({
+      distance: "60px",
+      duration: 2000,
+      delay: 200,
+      reset: true,
+    });
+
+    ScrollReveal().reveal(".section__header, .section__description", { delay: 200, origin: "top" });
+    ScrollReveal().reveal(".header__image, .explore__image, .chef__image", { delay: 400, origin: "left" });
+    ScrollReveal().reveal(".header__content, .explore__content, .chef__content", { delay: 400, origin: "right" });
+    ScrollReveal().reveal(".special__card, .banner__card, .client__card, .footer__col", {
+      delay: 300,
+      origin: "bottom",
+      interval: 100,
+    });
+
+    const swiper = new Swiper(".client__swiper", {
+  loop: true,
+  speed: 1000,
+  autoplay: true,
+  delay: 3000,
+  disableonInteraction: false,
+  effect:"slide",
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+    
+    const menuBtn = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuBtn.classList.toggle("active");
+    });
+  </script>
