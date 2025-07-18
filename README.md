@@ -1,5 +1,8 @@
 # PRODIGY_WD_01
-Responsive food startup landing page from scratch with HTML, CSS, and JavaScript! SAY- I'm BeingFoodie 𓌉◯𓇋
+**Responsive food startup landing page from scratch with HTML, CSS, and JavaScript!**
+
+<h3>SAY- I'm BeingFoodie. 𓌉◯𓇋
+
 Home Page- BeingFoodie
 <img width="1898" height="1079" alt="Screenshot 2025-07-18 172520" src="https://github.com/user-attachments/assets/c53aa157-63aa-4d8d-ab5b-2b31ab3e4e55" />
 Our Special Platter
