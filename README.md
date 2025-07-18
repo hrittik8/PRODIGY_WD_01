@@ -7,6 +7,6 @@ Our Special Platter
 About @CHEF
 <img width="1895" height="1079" alt="Screenshot 2025-07-18 172616" src="https://github.com/user-attachments/assets/ec77abca-8b3f-442e-9509-4939bb679a55" />
 Customer @LOVE+RATINGS
-<img width="1895" height="1079" alt="Screenshot 2025-07-18 172706" src="https://github.com/user-attachments/assets/ddf2cec0-b6e7-4f2f-8bb8-ed0fea5bde95" />
+<img width="1896" height="1079" alt="Screenshot 2025-07-18 174147" src="https://github.com/user-attachments/assets/7e76f8bd-c131-4252-9b63-3f4907f40b2f" />
 Contact us section
 <img width="1899" height="1079" alt="Screenshot 2025-07-18 172734" src="https://github.com/user-attachments/assets/0e5a0279-438c-450f-b94b-f64190684019" />
